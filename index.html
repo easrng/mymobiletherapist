@@ -46,7 +46,20 @@
     <div id="messages"></div>
     <form class="form-inline p-2">
     <input type="text" class="form-control" id="message" placeholder="Message">
-    <button type="submit" class="btn btn-primary">Send &rarr;</button>
+    <button id="send" type="submit" class="btn btn-primary">Send &rarr;</button>
 </form>
+    <script>$(function (){
+      function msg(txt,usr){
+  $("#messages").append($('<div class="message '+usr+'"></div>').text(txt))
+}
+var eliza=new ElizaBot();
+msg(eliza.getInitial(),"bot")
+        $("#send").click(function (){
+          var txt=$("#message");
+          msg(txt,"usr");
+          msg(eliza.transform(txt),"bot")
+        })
+      });
+      </script>
   </body>
 </html>
