@@ -51,11 +51,11 @@
     <script>$(function (){
       function msg(txt,usr){
         var newMsg=$('<div class="message '+usr+'"></div>').text(txt)
-        newMsg[0].scrollIntoView({
-          behavior: "smooth", // or "auto" or "instant"
-          block: "start" // or "end"
-        });
         $("#messages").append(newMsg)
+        $("#messages > div:last-child")[0].scrollIntoView({
+           behavior: "smooth", // or "auto" or "instant"
+           block: "start" // or "end"
+        });
       }
       var eliza=new ElizaBot();
       msg(eliza.getInitial(),"bot")
