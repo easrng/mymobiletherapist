@@ -57,7 +57,8 @@ msg(eliza.getInitial(),"bot")
         $("#send").click(function (){
           var txt=$("#message").val();
           msg(txt,"me");
-          msg(eliza.transform(txt),"bot")
+          msg(eliza.transform(txt),"bot");
+          $("#message").val("");
         })
       });
       </script>
