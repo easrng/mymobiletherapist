@@ -8,52 +8,52 @@
     <script src="bootstrap.js"></script>
     <link href="bootstrap.css" rel="stylesheet">
     <style>
-      
-.form-inline {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background: #eee;
-}
-#message {
-    flex-grow: 1;
-}
-      
-      
-.message {
-  padding: 1rem;
-  border-radius: 1rem;
-  margin: 1rem;
-}
-.message.me {
-  background-color: #007bff;
-  color: #fff;
-  border-bottom-right-radius: 0;
-}
-.message.bot {
-  background-color: #bbb;
-  color: #fff;
-  border-bottom-left-radius: 0;
-}
+      .form-inline {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: #eee;
+      }
+      #message {
+      flex-grow: 1;
+      }
+      #messages{
+      margin-bottom: calc(1.5em + .75rem + 2px + 2rem);
+      }
+      .message {
+      padding: 1rem;
+      border-radius: 1rem;
+      margin: 1rem;
+      }
+      .message.me {
+      background-color: #007bff;
+      color: #fff;
+      border-bottom-right-radius: 0;
+      }
+      .message.bot {
+      background-color: #bbb;
+      color: #fff;
+      border-bottom-left-radius: 0;
+      }
     </style>
   </head>
   <body>
-<!-- As a heading -->
-<nav class="navbar navbar-dark bg-primary">
-  <span class="navbar-brand mb-0 h1">MyMobileTherapist</span>
-</nav>
+    <!-- As a heading -->
+    <nav class="navbar navbar-dark bg-primary">
+      <span class="navbar-brand mb-0 h1">MyMobileTherapist</span>
+    </nav>
     <div id="messages"></div>
     <form class="form-inline p-2" action="javascript:void(0);">
-    <input type="text" class="form-control" id="message" placeholder="Message">
-    <button id="send" type="submit" class="btn btn-primary">Send &rarr;</button>
-</form>
+      <input type="text" class="form-control" id="message" placeholder="Message">
+      <button id="send" type="submit" class="btn btn-primary">Send &rarr;</button>
+    </form>
     <script>$(function (){
       function msg(txt,usr){
-  $("#messages").append($('<div class="message '+usr+'"></div>').text(txt))
-}
-var eliza=new ElizaBot();
-msg(eliza.getInitial(),"bot")
+      $("#messages").append($('<div class="message '+usr+'"></div>').text(txt))
+      }
+      var eliza=new ElizaBot();
+      msg(eliza.getInitial(),"bot")
         $("#send").click(function (){
           var txt=$("#message").val();
           msg(txt,"me");
@@ -61,6 +61,6 @@ msg(eliza.getInitial(),"bot")
           $("#message").val("");
         })
       });
-      </script>
+    </script>
   </body>
 </html>
