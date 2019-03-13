@@ -50,7 +50,12 @@
     </form>
     <script>$(function (){
       function msg(txt,usr){
-      $("#messages").append($('<div class="message '+usr+'"></div>').text(txt))
+        var newMsg=$('<div class="message '+usr+'"></div>').text(txt)
+        newMsg[0].scrollIntoView({
+          behavior: "smooth", // or "auto" or "instant"
+          block: "start" // or "end"
+        });
+        $("#messages").append(newMsg)
       }
       var eliza=new ElizaBot();
       msg(eliza.getInitial(),"bot")
